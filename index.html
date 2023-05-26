@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
     <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
-    <title>Calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="frame">
         <div class="screen">
-            <div class="history">1 + 2</div>
-            <div class="result">3</div>
+            <div class="history"></div>
+            <div class="result">0</div>
         </div>
         <div class="buttons">
             <div class="row">
-                <button>AC</button>
-                <button>DEL</button>
-                <button>%</button>
-                <button>X</button>
+                <button data-value="clear">AC</button>
+                <button data-value="delete">DEL</button>
+                <button data-value="operator">%</button>
+                <button data-value="operator">X</button>
             </div>
             <div class="row">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>/</button>
+                <button data-value="number">7</button>
+                <button data-value="number">8</button>
+                <button data-value="number">9</button>
+                <button data-value="operator">/</button>
             </div>
             <div class="row">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>+</button>
+                <button data-value="number">4</button>
+                <button data-value="number">5</button>
+                <button data-value="number">6</button>
+                <button data-value="operator">+</button>
             </div>
             <div class="row">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>-</button>
+                <button data-value="number">1</button>
+                <button data-value="number">2</button>
+                <button data-value="number">3</button>
+                <button data-value="operator">-</button>
             </div>
             <div class="row">
-                <button>0</button>
-                <button>.</button>
-                <button>=</button>
+                <button data-value="number">0</button>
+                <button data-value="point">.</button>
+                <button data-value="equals">=</button>
             </div>
         </div>
     </div>
