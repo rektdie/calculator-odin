@@ -83,11 +83,6 @@ button {
     font-size: 30px;
 }
 
-button[data-value="equals"] {
-    width: 160px;
-    font-size: 50px;
-}
-
 button[data-value="equals"]:hover {
     border: 3px solid #08A045;
 }
@@ -112,5 +107,10 @@ button[data-value="point"]:hover {
     border: 3px solid #CBBF7A;
 }
 
+button[data-value="negative"]:hover {
+    border: 3px solid #CBBF7A;
+}
+
 button:active {
+    transform: scale(0.95, 0.95);
 }
