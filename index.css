@@ -1,8 +1,10 @@
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Calculator', sans-serif;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,22 +20,28 @@ body {
     align-items: center;
     width: 350px;
     height: 530px;
-    background-color: grey;
+    background-color: #1C212A;
     padding: 20px;
     gap: 20px;
     border-radius: 15px;
-    box-shadow: 10px 10px lightgrey;
+    box-shadow: 5px 5px 5px 5px#364052;
 }
 
 .screen {
-    background-color: azure;
+    background-color: #6CE764;
     width: 350px;
     height: 80px;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 2px 2px 2px 2px inset darkgreen;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .buttons {
-    background-color: cornsilk;
+    background-color: #29303D;
     height: 450px;
     width: 350px;
     display: flex;
@@ -46,31 +54,63 @@ body {
 
 .row {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
 button {
     width: 75px;
     height: 75px;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
-    border-radius: 15px;
-}
-
-.screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    border-radius: 20px;
+    background-color: #404040;
+    border: none;
+    color: white;
+    transition-property: all;
 }
 
 .history, .result {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    width: 350px;
+    width: 335px;
     height: 25px;
 }
 
 .result {
-    font-size: 25px;
+    font-size: 30px;
+}
+
+button[data-value="equals"] {
+    width: 160px;
+    font-size: 50px;
+}
+
+button[data-value="equals"]:hover {
+    border: 3px solid #08A045;
+}
+
+button[data-value="operator"]:hover {
+    border: 3px solid #E7E247;
+}
+
+button[data-value="number"]:hover {
+    border: 3px solid #70F8BA;
+}
+
+button[data-value="delete"]:hover {
+    border: 3px solid #DB504A;
+}
+
+button[data-value="clear"]:hover {
+    border: 3px solid #DB504A;
+}
+
+button[data-value="point"]:hover {
+    border: 3px solid #CBBF7A;
+}
+
+button:active {
 }
