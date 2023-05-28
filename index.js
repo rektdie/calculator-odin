@@ -44,7 +44,6 @@ const history = document.querySelector(".history");
 const result = document.querySelector(".result");
 
 let showingResults = false;
-let pieces = [];
 
 numberButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -62,9 +61,15 @@ operators.forEach(button => {
             history.textContent += ` ${result.textContent} ${button.textContent}`;
             result.textContent = "0";
         } else {
-            history.textContent = ` ${result.textContent} ${button.textContent}`
-            result.textContent = 0;
-            showingResults = false;
+            if (result.textContent !== "ERROR"){
+                history.textContent = ` ${result.textContent} ${button.textContent}`;
+                result.textContent = 0;
+                showingResults = false;
+            } else {
+                history.textContent = ` 0 ${button.textContent}`;
+                result.textContent = 0;
+                showingResults = false;
+            }
         }
     });
 });
@@ -77,12 +82,14 @@ equalsButton.addEventListener("click", () => {
         
         let value = 0;
     
-        pieces = toSolve.trim().split(" ");
-        const num1 = Number(pieces[0]);
-        const num2 = Number(pieces[2]);
-        const operation = pieces[1];
+        let pieces = toSolve.trim().split(" ");
+        
     
-        while (pieces.length > 2){
+        while (pieces.length >= 3){
+            const num1 = Number(pieces[0]);
+            const num2 = Number(pieces[2]);
+            const operation = pieces[1];
+
             if ((operation === "%" || operation === "/") && num2 == 0){
                 value = "ERROR";
                 break;
@@ -104,25 +111,29 @@ clearButton.addEventListener("click", () => {
 });
 
 deleteButton.addEventListener("click", () => {
-    if (result.textContent != 0) {
+    if (result.textContent != 0 && result.textContent !== "ERROR") {
         if (result.textContent.length != 1){
             result.textContent = result.textContent.slice(0, -1);
         } else {
             result.textContent = "0";
         }
+    } else {
+        result.textContent = "0";
     }
 });
 
 pointButton.addEventListener("click", () => {
-    if (!result.textContent.includes(".")) {
+    if (!result.textContent.includes(".") && result.textContent !== "ERROR") {
         result.textContent += ".";
     }
 });
 
 negativeButton.addEventListener("click", () => {
-    if (!result.textContent.includes("-")){
-        result.textContent = "-" + result.textContent;
-    } else {
-        result.textContent = result.textContent.slice(1, result.textContent.length);
+    if (result.textContent !== "ERROR") {
+        if (!result.textContent.includes("-")){
+            result.textContent = "-" + result.textContent;
+        } else {
+            result.textContent = result.textContent.slice(1, result.textContent.length);
+        }
     }
 });
